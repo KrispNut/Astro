@@ -1,0 +1,36 @@
+name: astro
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get:
+  http:
+  intl:
+  lottie:
+  provider:
+  sensors_plus:
+  cupertino_icons:
+  shared_preferences:
+  fluttertoast:
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+
+  fonts:
+    - family: NothingDotted
+      fonts:
+        - asset: fonts/Dotted.ttf

@@ -31,18 +31,19 @@ class SolarFlareData {
   final int? versionId;
   final String? link;
   final List<LinkedEvent> linkedEvents;
-  final dynamic sentNotifications;
+  final List<SentNotification>
+  sentNotifications; // Changed to List<SentNotification>
 
   factory SolarFlareData.fromJson(Map<String, dynamic> json) {
     return SolarFlareData(
       flrId: json["flrID"],
       catalog: json["catalog"],
       instruments:
-          json["instruments"] == null
-              ? []
-              : List<Instrument>.from(
-                json["instruments"]!.map((x) => Instrument.fromJson(x)),
-              ),
+          (json["instruments"] is List)
+              ? List<Instrument>.from(
+                json["instruments"].map((x) => Instrument.fromJson(x)),
+              )
+              : [],
       beginTime: json["beginTime"],
       peakTime: json["peakTime"],
       endTime: json["endTime"],
@@ -54,12 +55,19 @@ class SolarFlareData {
       versionId: json["versionId"],
       link: json["link"],
       linkedEvents:
-          json["linkedEvents"] == null
-              ? []
-              : List<LinkedEvent>.from(
-                json["linkedEvents"]!.map((x) => LinkedEvent.fromJson(x)),
-              ),
-      sentNotifications: json["sentNotifications"],
+          (json["linkedEvents"] is List)
+              ? List<LinkedEvent>.from(
+                json["linkedEvents"].map((x) => LinkedEvent.fromJson(x)),
+              )
+              : [],
+      sentNotifications:
+          (json["sentNotifications"] is List)
+              ? List<SentNotification>.from(
+                json["sentNotifications"].map(
+                  (x) => SentNotification.fromJson(x),
+                ),
+              )
+              : [],
     );
   }
 
@@ -78,7 +86,7 @@ class SolarFlareData {
     "versionId": versionId,
     "link": link,
     "linkedEvents": linkedEvents.map((x) => x?.toJson()).toList(),
-    "sentNotifications": sentNotifications,
+    "sentNotifications": sentNotifications.map((x) => x?.toJson()).toList(),
   };
 
   @override
@@ -104,6 +112,9 @@ class Instrument {
   }
 }
 
+// Re-using LinkedEvent and SentNotification from get_geomagnetic_data.dart or define here if different
+// Assuming for now they are the same structure as in get_geomagnetic_data.dart
+
 class LinkedEvent {
   LinkedEvent({required this.activityId});
 
@@ -118,5 +129,36 @@ class LinkedEvent {
   @override
   String toString() {
     return "$activityId, ";
+  }
+}
+
+class SentNotification {
+  SentNotification({
+    required this.messageId,
+    required this.messageIssueTime,
+    required this.messageUrl,
+  });
+
+  final String? messageId;
+  final String? messageIssueTime;
+  final String? messageUrl;
+
+  factory SentNotification.fromJson(Map<String, dynamic> json) {
+    return SentNotification(
+      messageId: json["messageID"],
+      messageIssueTime: json["messageIssueTime"],
+      messageUrl: json["messageURL"],
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    "messageID": messageId,
+    "messageIssueTime": messageIssueTime,
+    "messageURL": messageUrl,
+  };
+
+  @override
+  String toString() {
+    return "$messageId, $messageIssueTime, $messageUrl, ";
   }
 }

@@ -4,7 +4,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:get/get.dart'; // Added GetX import
 import 'package:astro/core/fonts/text_styles.dart'; // Added TextStyles import
-import 'package:astro/core/theme/AppColors.dart'; // For consistent colors
+import 'package:astro/core/theme/AppColors.dart';
 
 class NetworkMonitor {
   static final NetworkMonitor _instance = NetworkMonitor._internal();
@@ -72,7 +72,7 @@ class NetworkMonitor {
                       'Connection Lost',
                       style: getBoldStyle(
                         fontSize: 22,
-                        color: AppColors.textColor(),
+                        color: AppColors.textColor,
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -81,7 +81,7 @@ class NetworkMonitor {
                       textAlign: TextAlign.center,
                       style: getRegularStyle(
                         fontSize: 16,
-                        color: AppColors.secondaryTextColor(),
+                        color: AppColors.secondaryTextColor,
                       ),
                     ),
                   ],

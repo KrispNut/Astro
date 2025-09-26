@@ -1,8 +1,8 @@
-import 'package:astro/core/widgets/custom_loading.dart';
 import 'package:astro/features/home/widgets/gyroscope_background.dart';
+import 'package:astro/core/widgets/custom_loading.dart';
+import 'package:astro/core/fonts/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:astro/core/fonts/text_styles.dart'; // Added import
 
 class DetailView extends StatelessWidget {
   final String title;

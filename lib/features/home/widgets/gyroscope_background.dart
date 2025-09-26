@@ -47,9 +47,9 @@ class _GyroscopeBackgroundState extends State<GyroscopeBackground> {
           center: Alignment(0.1 + x * 0.08, 0.1 + y * 0.08),
           radius: 1.3,
           colors: [
-            AppColors.primaryColor().withOpacity(0.25), // Updated
-            AppColors.primaryColor().withOpacity(0.1), // Updated
-            AppColors.bgColor(), // Updated
+            AppColors.primaryColor.withOpacity(0.25), // Updated
+            AppColors.primaryColor.withOpacity(0.1), // Updated
+            AppColors.bgColor, // Updated
           ],
           stops: const [0.0, 0.3, 0.7],
         ),

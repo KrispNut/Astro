@@ -26,9 +26,9 @@ class AsteroidSection extends StatelessWidget {
       if (controller.asteroidData.value == null) {
         return Container(
           decoration: BoxDecoration(
-            color: AppColors.cardColor().withOpacity(0.95),
+            color: AppColors.cardColor.withOpacity(0.95),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.borderColor().withOpacity(0.2)),
+            border: Border.all(color: AppColors.borderColor.withOpacity(0.2)),
           ),
           padding: const EdgeInsets.all(16),
           child: Text(
@@ -44,9 +44,9 @@ class AsteroidSection extends StatelessWidget {
 
       return Container(
         decoration: BoxDecoration(
-          color: AppColors.cardColor().withOpacity(0.95),
+          color: AppColors.cardColor.withOpacity(0.95),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.borderColor().withOpacity(0.2)),
+          border: Border.all(color: AppColors.borderColor.withOpacity(0.2)),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -105,7 +105,7 @@ class AsteroidSection extends StatelessWidget {
           Text(label, style: getMediumStyle(fontSize: 14, color: Colors.grey)),
           Text(
             value,
-            style: getSemiBoldStyle(fontSize: 14, color: AppColors.textColor()),
+            style: getSemiBoldStyle(fontSize: 14, color: AppColors.textColor),
           ),
         ],
       ),
@@ -129,17 +129,11 @@ class AsteroidSection extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               title: Text(
                 approach['name'] ?? 'Unknown',
-                style: getMediumStyle(
-                  fontSize: 12,
-                  color: AppColors.textColor(),
-                ),
+                style: getMediumStyle(fontSize: 12, color: AppColors.textColor),
               ),
               subtitle: Text(
                 'Distance: ${approach['distance']} km\nDate: ${approach['date']}',
-                style: getLightStyle(
-                  fontSize: 10,
-                  color: AppColors.textColor(),
-                ),
+                style: getLightStyle(fontSize: 10, color: AppColors.textColor),
               ),
               trailing:
                   approach['hazardous']

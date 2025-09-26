@@ -40,32 +40,45 @@ class HomeController extends GetxController {
   }
 
   Future<void> refreshData() async {
-    await fetchAllData();
+    await fetchAllData(forceRefresh: true);
   }
 
-  Future<void> fetchAllData() async {
+  Future<void> fetchAllData({bool forceRefresh = false}) async {
     try {
       isLoading.value = true;
 
-      final now = DateTime.now();
-      final startDate = "2025-08-07";
-      final endDate = "2025-09-07";
+      final now = DateTime.now().toUtc(); // Use UTC
+      final formatter = DateFormat('yyyy-MM-dd');
+      final endDate = formatter.format(now);
+
+      // startDate for GST and FLR (30 days)
+      final gstFlrStartDate = formatter.format(
+        now.subtract(const Duration(days: 30)),
+      );
+
+      // startDate for Asteroids (7 days)
+      final asteroidStartDate = formatter.format(
+        now.subtract(const Duration(days: 7)),
+      );
 
       final fetchedAsteroidData = await _repository.fetchAsteroidData(
-        startDate: startDate,
+        startDate: asteroidStartDate, // Use 7-day start date
         endDate: endDate,
+        forceRefresh: forceRefresh,
       );
       asteroidData.value = fetchedAsteroidData;
 
       final fetchedGstData = await _repository.fetchGSTData(
-        startDate: startDate,
+        startDate: gstFlrStartDate, // Use 30-day start date
         endDate: endDate,
+        forceRefresh: forceRefresh,
       );
       gstData.value = fetchedGstData;
 
       final fetchedFlrData = await _repository.fetchFLRData(
-        startDate: startDate,
+        startDate: gstFlrStartDate, // Use 30-day start date
         endDate: endDate,
+        forceRefresh: forceRefresh,
       );
       flrData.value = fetchedFlrData;
     } catch (e) {

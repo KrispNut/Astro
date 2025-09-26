@@ -24,7 +24,7 @@ class CustomConfirmationDialog extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async => isCloseable,
       child: Dialog(
-        backgroundColor: AppColors.cardColor(),
+        backgroundColor: AppColors.cardColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -39,7 +39,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                       Text(
                         title,
                         style: getMediumStyle(
-                          color: AppColors.textColor(),
+                          color: AppColors.textColor,
                           fontSize: 24,
                         ),
                       ),
@@ -49,7 +49,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                       Text(
                         message,
                         textAlign: TextAlign.center,
-                        style: getRegularStyle(color: AppColors.textColor()),
+                        style: getRegularStyle(color: AppColors.textColor),
                       ),
                     ],
                   ),
@@ -66,19 +66,19 @@ class CustomConfirmationDialog extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         height: 48,
                         decoration: BoxDecoration(
-                          color: AppColors.primaryColor().withOpacity(.2),
+                          color: AppColors.primaryColor.withOpacity(.2),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.cancel, color: AppColors.primaryColor()),
+                            Icon(Icons.cancel, color: AppColors.primaryColor),
                             const SizedBox(width: 4),
                             Text(
                               "Not Now",
                               style: getMediumStyle(
                                 fontSize: 16,
-                                color: AppColors.primaryColor(),
+                                color: AppColors.primaryColor,
                               ),
                             ),
                           ],
@@ -91,19 +91,19 @@ class CustomConfirmationDialog extends StatelessWidget {
                         width: 120,
                         height: 48,
                         decoration: BoxDecoration(
-                          color: AppColors.primaryColor().withOpacity(.2),
+                          color: AppColors.primaryColor.withOpacity(.2),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.delete, color: AppColors.primaryColor()),
+                            Icon(Icons.delete, color: AppColors.primaryColor),
                             const SizedBox(width: 4),
                             Text(
                               "Yes",
                               style: getMediumStyle(
                                 fontSize: 16,
-                                color: AppColors.primaryColor(),
+                                color: AppColors.primaryColor,
                               ),
                             ),
                           ],
@@ -120,7 +120,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     height: 48,
                     decoration: BoxDecoration(
-                      color: AppColors.primaryColor().withOpacity(.2),
+                      color: AppColors.primaryColor.withOpacity(.2),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Align(
@@ -129,7 +129,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                         "Dismiss",
                         style: getMediumStyle(
                           fontSize: 16,
-                          color: AppColors.primaryColor(),
+                          color: AppColors.primaryColor,
                         ),
                       ),
                     ),

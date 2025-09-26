@@ -53,7 +53,7 @@ class CustomLoading {
                     Text(
                       "Please wait...",
                       style: getSemiBoldStyle(
-                        color: AppColors.textColor(), // Removed context
+                        color: AppColors.textColor, // Removed context
                         fontSize: 20,
                       ),
                     ),

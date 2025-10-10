@@ -1,5 +1,5 @@
 import 'package:astro/core/widgets/custom_alert_dialog.dart';
-import 'package:astro/features/splash/view.dart';
+import 'package:astro/features/splash/splash_view.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

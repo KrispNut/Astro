@@ -1,7 +1,7 @@
 import 'package:astro/core/theme/theme_service.dart';
-import 'package:astro/features/splash/view.dart';
-import 'package:astro/features/detail/view.dart';
-import 'package:astro/features/home/view.dart';
+import 'package:astro/features/splash/splash_view.dart';
+import 'package:astro/features/detail/detail_view.dart';
+import 'package:astro/features/home/home_view.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -45,6 +45,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    const baseTextTheme = TextTheme(
+      displayLarge: TextStyle(fontFamily: 'NothingDotted'),
+      displayMedium: TextStyle(fontFamily: 'NothingDotted'),
+      bodyLarge: TextStyle(fontFamily: 'NothingDotted'),
+    );
+
     return KeyedSubtree(
       key: key,
       child: ChangeNotifierProvider.value(
@@ -57,8 +63,10 @@ class _MyAppState extends State<MyApp> {
                 primaryColor: const Color(0xFFFF9D6F),
                 scaffoldBackgroundColor: const Color(0xFFF5F5F5),
                 cardColor: Colors.white,
-                textTheme: ThemeData.light().textTheme.apply(
-                  fontFamily: 'NothingDotted',
+                // Defines text colors for the light theme
+                textTheme: baseTextTheme.apply(
+                  bodyColor: Colors.black87,
+                  displayColor: Colors.black,
                 ),
                 appBarTheme: const AppBarTheme(
                   backgroundColor: Color(0xFFF5F5F5),
@@ -70,8 +78,10 @@ class _MyAppState extends State<MyApp> {
                 primaryColor: const Color(0xFFFF7D45),
                 scaffoldBackgroundColor: const Color(0xFF121212),
                 cardColor: const Color(0xFF1E1E1E),
-                textTheme: ThemeData.dark().textTheme.apply(
-                  fontFamily: 'NothingDotted',
+                // Defines text colors for the dark theme
+                textTheme: baseTextTheme.apply(
+                  bodyColor: Colors.white,
+                  displayColor: Colors.white70,
                 ),
                 appBarTheme: const AppBarTheme(
                   backgroundColor: Color(0xFF121212),
@@ -86,23 +96,6 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                   name: '/detail/:title',
                   page: () => DetailView(title: Get.parameters['title']!),
-                ),
-                GetPage(
-                  name: '/planets',
-                  page: () => DetailView(title: 'Planets'),
-                ),
-                GetPage(name: '/stars', page: () => DetailView(title: 'Stars')),
-                GetPage(
-                  name: '/galaxies',
-                  page: () => DetailView(title: 'Galaxies'),
-                ),
-                GetPage(
-                  name: '/events',
-                  page: () => DetailView(title: 'Events'),
-                ),
-                GetPage(
-                  name: '/constellation/:name',
-                  page: () => DetailView(title: Get.parameters['name']!),
                 ),
               ],
             );

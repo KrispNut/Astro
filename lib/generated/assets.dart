@@ -4,10 +4,13 @@ class Assets {
 
   static const String assets404 = 'assets/404.json';
   static const String assetsCardBorder = 'assets/card_border.json';
+  static const String assetsDarkGradient = 'assets/dark_gradient.json';
   static const String assetsDarkMode = 'assets/dark_mode.json';
   static const String assetsLoadingDark = 'assets/loading_dark.json';
   static const String assetsLoadingLight = 'assets/loading_light.json';
   static const String assetsMars = 'assets/mars.json';
   static const String assetsMoon = 'assets/moon.json';
+  static const String assetsNeptune = 'assets/neptune.json';
   static const String assetsSaturn = 'assets/saturn.json';
+  static const String assetsSun = 'assets/sun.json';
 }

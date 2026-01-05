@@ -1,16 +1,17 @@
 name: "Build & Release"
 
 on:
-  # 1. Trigger on Pushes to branches (Runs build, but skips Release)
   push:
-    branches: [ "main", "master", "develop" ]
-  # 2. Trigger on Pull Requests (Runs build, but skips Release)
-  pull_request:
-    branches: [ "main", "master" ]
-  # 3. Trigger when you push a Tag (Runs build AND Release)
-  push:
+    branches:
+      - "main"
+      - "master"
+      - "develop"
     tags:
-      - 'v*'
+      - "v*"  # Runs the release step only when you push a tag like v1.0
+  pull_request:
+    branches:
+      - "main"
+      - "master"
 
 jobs:
   build:
@@ -28,14 +29,13 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-          # Removing 'architecture: x64' lets it run native ARM64 on M1 Macs (faster)
 
       - run: flutter pub get
 
       # Build Android
       - run: flutter build apk --release --split-per-abi
 
-      # Build iOS (Unsigned - see warning above)
+      # Build iOS (Unsigned)
       - run: |
           flutter build ios --release --no-codesign
           cd build/ios/iphoneos

@@ -1,0 +1,52 @@
+name: Flutter Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # Job 1: Build for Android (Runs on Linux - Faster/Cheaper)
+  android-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Java is required for Android builds
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Analyzes code for errors
+      - name: Analyze
+        run: flutter analyze
+
+      # Builds the release APK
+      - name: Build Android Release
+        run: flutter build apk --release
+
+  # Job 2: Build for iOS (Runs on macOS - Required for Xcode)
+  ios-build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Builds the iOS app in release mode without requiring certificates
+      - name: Build iOS Release (No Code Sign)
+        run: flutter build ios --release --no-codesign

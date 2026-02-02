@@ -23,7 +23,7 @@ class AstronomyCard extends StatelessWidget {
         children: [
           Transform.scale(
             scale: 1.17,
-            child: Lottie.asset(Assets.assetsCardBorder, fit: BoxFit.fill),
+            child: Lottie.asset(Assets.lottieCardBorder, fit: BoxFit.fill),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),

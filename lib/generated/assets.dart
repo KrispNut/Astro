@@ -2,15 +2,20 @@
 class Assets {
   Assets._();
 
-  static const String assets404 = 'assets/404.json';
-  static const String assetsCardBorder = 'assets/card_border.json';
-  static const String assetsDarkGradient = 'assets/dark_gradient.json';
-  static const String assetsDarkMode = 'assets/dark_mode.json';
-  static const String assetsLoadingDark = 'assets/loading_dark.json';
-  static const String assetsLoadingLight = 'assets/loading_light.json';
-  static const String assetsMars = 'assets/mars.json';
-  static const String assetsMoon = 'assets/moon.json';
-  static const String assetsNeptune = 'assets/neptune.json';
-  static const String assetsSaturn = 'assets/saturn.json';
-  static const String assetsSun = 'assets/sun.json';
+  static const String fontsDotted = 'assets/fonts/Dotted.ttf';
+  static const String imagesFeatureGraphic =
+      'assets/images/feature_graphic.jpg';
+  static const String imagesSolarFlares = 'assets/images/solar_flares.jpg';
+  static const String imagesSplash = 'assets/images/splash.jpg';
+  static const String lottie404 = 'assets/lottie/404.json';
+  static const String lottieCardBorder = 'assets/lottie/card_border.json';
+  static const String lottieDarkGradient = 'assets/lottie/dark_gradient.json';
+  static const String lottieDarkMode = 'assets/lottie/dark_mode.json';
+  static const String lottieLoadingDark = 'assets/lottie/loading_dark.json';
+  static const String lottieLoadingLight = 'assets/lottie/loading_light.json';
+  static const String lottieMars = 'assets/lottie/mars.json';
+  static const String lottieMoon = 'assets/lottie/moon.json';
+  static const String lottieNeptune = 'assets/lottie/neptune.json';
+  static const String lottieSaturn = 'assets/lottie/saturn.json';
+  static const String lottieSun = 'assets/lottie/sun.json';
 }

@@ -44,7 +44,7 @@ class CustomConfirmationDialog extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      Image.asset(Assets.assets404),
+                      Image.asset(Assets.lottie404),
                       const SizedBox(height: 20),
                       Text(
                         message,

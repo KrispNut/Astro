@@ -16,7 +16,7 @@ class SplashView extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Lottie.asset(
-          isDarkMode ? Assets.assetsLoadingDark : Assets.assetsLoadingLight,
+          isDarkMode ? Assets.lottieLoadingDark : Assets.lottieLoadingLight,
           width: 200,
           height: 200,
           fit: BoxFit.fill,

@@ -41,7 +41,7 @@ class _ThemeToggleState extends State<ThemeToggle>
     return IconButton(
       splashRadius: 20,
       icon: Lottie.asset(
-        Assets.assetsDarkMode,
+        Assets.lottieDarkMode,
         controller: _controller,
       ),
       onPressed: () {

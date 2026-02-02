@@ -35,7 +35,7 @@ class SolarFlarePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset(Assets.assetsSun,
+            Lottie.asset(Assets.lottieSun,
                 width: 200, height: 200, repeat: true),
             Column(
               children: [

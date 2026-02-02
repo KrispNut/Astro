@@ -16,52 +16,48 @@ class CustomLoading {
     // final themeService = Provider.of<ThemeService>(context, listen: false); // Changed to use ThemeService.instance
 
     _overlayEntry = OverlayEntry(
-      builder:
-          (context) => Material(
-            color: Colors.black.withOpacity(0.5),
-            child: Center(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color:
-                      Theme.of(
-                        context,
-                      ).cardColor, // Keep context for Theme.of(context)
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 10,
-                      spreadRadius: 2,
-                    ),
-                  ],
+      builder: (context) => Material(
+        color: Colors.black.withOpacity(0.5),
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).cardColor, // Keep context for Theme.of(context)
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 10,
+                  spreadRadius: 2,
                 ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Lottie.asset(
-                      ThemeService
-                              .instance
-                              .isDarkMode // Use singleton instance
-                          ? Assets.assetsLoadingDark
-                          : Assets.assetsLoadingLight,
-                      width: 150,
-                      height: 150,
-                      fit: BoxFit.contain,
-                    ),
-                    const SizedBox(height: 16),
-                    Text(
-                      "Please wait...",
-                      style: getSemiBoldStyle(
-                        color: AppColors.textColor, // Removed context
-                        fontSize: 20,
-                      ),
-                    ),
-                  ],
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Lottie.asset(
+                  ThemeService.instance.isDarkMode // Use singleton instance
+                      ? Assets.lottieLoadingDark
+                      : Assets.lottieLoadingLight,
+                  width: 150,
+                  height: 150,
+                  fit: BoxFit.contain,
                 ),
-              ),
+                const SizedBox(height: 16),
+                Text(
+                  "Please wait...",
+                  style: getSemiBoldStyle(
+                    color: AppColors.textColor, // Removed context
+                    fontSize: 20,
+                  ),
+                ),
+              ],
             ),
           ),
+        ),
+      ),
     );
 
     Overlay.of(context).insert(_overlayEntry!);

@@ -35,7 +35,7 @@ class GeomagneticPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset(Assets.assetsSaturn,
+            Lottie.asset(Assets.lottieSaturn,
                 width: 300, height: 300, repeat: true),
             Column(
               children: [

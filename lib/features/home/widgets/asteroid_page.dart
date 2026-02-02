@@ -35,7 +35,7 @@ class AsteroidPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Lottie.asset(Assets.assetsMoon,
+            Lottie.asset(Assets.lottieMoon,
                 width: 200, height: 200, repeat: true),
             Column(
               children: [
